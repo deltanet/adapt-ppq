@@ -1,78 +1,130 @@
 {
-    "_id":"c-04",
-    "_parentId":"b-05",
+    "_id":"c-89",
+    "_parentId":"b-69",
     "_type":"component",
     "_component":"ppq",
     "_classes":"",
-    "_layout":"",
-    "title":"PPQ",
-    "displayTitle":"PPQ",
-    "body":"Body",
-    "instruction":"",
+    "_layout":"full",
+    "title":"Choose the tools",
+    "displayTitle":"Choose the tools",
+    "body":"Now that you’ve been introduced to the power tools, it’s over to you for a challenge. Meet Kirstie. She’s just approached you in store in the timber aisle. She says she’s redecorating her lounge and wants to sand the old floor and fix some damaged boards. Being a novice DIYer, she wonders if any power tools might make her job easier. Can you help point her in the right direction?",
+    "instruction":"Select three tools to help Kirstie, and then select Submit.",
     "_attempts":1,
+    "_selectable": 3,
     "_questionWeight":1,
+    "_isResetOnRevisit": true,
     "_developerMode":true,
     "_pinboardDesktop": {
-        "src": "course/en/images/hotgraphic.png",
-        "alt": "alt text",
-        "title": "title text"
+        "src": "course/en/images/c-89.jpg",
+        "alt": "",
+        "title": ""
     },
     "_pinboardMobile": {
-        "src": "course/en/images/ppq-mobile.png",
-        "alt": "alt text",
-        "title": "title text"
-    },
+        "src": "course/en/images/c-89-mobile.jpg",
+        "alt": "",
+        "title": ""
+    },        
     "_items": [
         {
+            "_isCorrect": true,
             "desktop": {
-                "left": 20,
-                "bottom": 48,
-                "width": 10,
-                "height": 10 
+                "left": 0,
+                "top": 0,
+                "width": 38,
+                "height": 48
             },
             "mobile": {
-                "left": 20,
-                "bottom": 70,
-                "width": 20,
-                "height": 20 
-            }
+                "left": 0,
+                "top": 0,
+                "width": 100,
+                "height": 15
+            }                
         },
         {
+            "_isCorrect": true,
             "desktop": {
-                "left": 40,
-                "bottom": 48,
-                "width": 10,
-                "height": 10 
+                "left": 38,
+                "top": 0,
+                "width": 21,
+                "height": 50
             },
             "mobile": {
-                "left": 40,
-                "bottom": 40,
-                "width": 20,
-                "height": 20 
-            }
+                "left": 0,
+                "top": 14,
+                "width": 100,
+                "height": 16
+            }                
         },
         {
+            "_isCorrect": true,
             "desktop": {
-                "left": 60,
-                "bottom": 48,
-                "width": 10,
-                "height": 10 
+                "left": 38,
+                "top": 49,
+                "width": 31,
+                "height": 48
             },
             "mobile": {
-                "left": 60,
-                "bottom": 10,
-                "width": 20,
-                "height": 20 
-            }
+                "left": 0,
+                "top": 63,
+                "width": 100,
+                "height": 16
+            }                
+        },
+        {
+            "_isCorrect": false,
+            "desktop": {
+                  "left": 0,
+                  "top": 48,
+                  "width": 38,
+                  "height": 49
+            },
+            "mobile": {
+                "left": 0,
+                "top": 29,
+                "width": 100,
+                "height": 16
+            }                
+        },
+        {
+            "_isCorrect": false,
+            "desktop": {
+                  "left": 69,
+                  "top": 39,
+                  "width": 31,
+                  "height": 58
+            },
+            "mobile": {
+                "left": 0,
+                "top": 45,
+                "width": 100,
+                "height": 18
+            }                
+        },
+        {
+            "_isCorrect": false,
+            "desktop": {
+                  "left": 59,
+                  "top": 0,
+                  "width": 41,
+                  "height": 49
+            },
+            "mobile": {
+                "left": 0,
+                "top": 79,
+                "width": 100,
+                "height": 21
+            }                
         }
     ],
-    "_feedback":{
-        "correct":"Congratulations, this is the correct feedback.",
+    "_feedback": {
+        "correct": "That’s right. A belt sander is ideal for stripping wood, while drill drivers are great for putting in screws. Kirstie might also like to use a screwdriver as they’re designed to take the manual work out of repetitive screwdriving, and they can be used on a slow speed setting. Perfect for a novice DIYer like Kirstie.<br><br><strong>Close this feedback box to continue.</strong>",
         "_partlyCorrect": {
-            "final":"This is the partly correct feedback."
+            "notFinal": "Actually, you’re not quite there yet. Why not take another look at this power tools topic? Then you might have a better idea of which tools would work best for Kirstie’s sanding and fixing jobs.<br><br><strong>Close this feedback box and then select the Reset button when you’re ready to try the question again.</strong>",
+            "final": "Not quite. A belt sander is ideal for stripping wood, while drill drivers are great for putting in screws. Kirstie might also like to use a screwdriver as they’re designed to take the manual work out of repetitive screwdriving, and they can be used on a slow speed setting. Perfect for a novice DIYer like Kirstie.<br><br><strong>Close this feedback box to continue.</strong>"
         },
         "_incorrect": {
-            "final":"Unfortunately this is the incorrect feedback."
+            "notFinal": "Actually, that’s not right. Why not take another look at this topic on power tools? Then you might have a better idea of which tools would work best for Kirstie’s sanding and fixing jobs.<br><br><strong>Close this feedback box and then select the Reset button when you’re ready to try the question again.</strong>",
+            "final": "Sorry that’s not right. A belt sander is ideal for stripping wood, while drill drivers are great for putting in screws. Kirstie might also like to use a screwdriver as they’re designed to take the manual work out of repetitive screwdriving, and they can be used on a slow speed setting. Perfect for a novice DIYer like Kirstie.<br><br>Close this feedback box to continue."
         }
     },
     "_buttons":{
@@ -81,5 +133,8 @@
         "showCorrectAnswer":"Model Answer",
         "hideCorrectAnswer":"Your Answer",
         "resetPins":"Reset Pins"
+    },
+    "_pageLevelProgress": {
+        "_isEnabled": true
     }
 }
