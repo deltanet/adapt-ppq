@@ -4,7 +4,7 @@
     "_type":"component",
     "_component":"ppq-audio",
     "_classes":"",
-    "_layout":"",
+    "_layout":"full",
     "_canShowModelAnswer": true,
     "_shouldDisplayAttempts": false,
     "_attempts":1,
@@ -32,12 +32,12 @@
         }
     },
     "_pinboardDesktop": {
-        "src": "course/en/images/hotgraphic.png",
+        "src": "course/en/images/hotgraphic-bg.jpg",
         "alt": "alt text",
         "title": "title text"
     },
     "_pinboardMobile": {
-        "src": "course/en/images/ppq-mobile.png",
+        "src": "course/en/images/hotgraphic-bg.jpg",
         "alt": "alt text",
         "title": "title text"
     },
@@ -45,13 +45,13 @@
         {
             "desktop": {
                 "left": 20,
-                "bottom": 48,
+                "top": 48,
                 "width": 10,
                 "height": 10 
             },
             "mobile": {
                 "left": 20,
-                "bottom": 70,
+                "top": 70,
                 "width": 20,
                 "height": 20 
             }
@@ -59,13 +59,13 @@
         {
             "desktop": {
                 "left": 40,
-                "bottom": 48,
+                "top": 48,
                 "width": 10,
                 "height": 10 
             },
             "mobile": {
                 "left": 40,
-                "bottom": 40,
+                "top": 40,
                 "width": 20,
                 "height": 20 
             }
@@ -73,13 +73,13 @@
         {
             "desktop": {
                 "left": 60,
-                "bottom": 48,
+                "top": 48,
                 "width": 10,
                 "height": 10 
             },
             "mobile": {
                 "left": 60,
-                "bottom": 10,
+                "top": 10,
                 "width": 20,
                 "height": 20 
             }

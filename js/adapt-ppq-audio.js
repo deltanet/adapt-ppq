@@ -1,7 +1,7 @@
 define(function(require) {
 
-	var QuestionView = require('coreViews/questionView');
-	var Adapt = require('coreJS/adapt');
+    var QuestionView = require('coreViews/questionView');
+    var Adapt = require('coreJS/adapt');
     var Draggabilly = require('components/adapt-ppq-audio/js/draggabilly');
 
     var PPQAudio = QuestionView.extend({
