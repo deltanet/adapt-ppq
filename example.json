@@ -2,16 +2,35 @@
     "_id":"c-04",
     "_parentId":"b-05",
     "_type":"component",
-    "_component":"ppq",
+    "_component":"ppq-audio",
     "_classes":"",
     "_layout":"",
-    "title":"PPQ",
-    "displayTitle":"PPQ",
-    "body":"Body",
-    "instruction":"",
+    "_canShowModelAnswer": true,
+    "_shouldDisplayAttempts": false,
     "_attempts":1,
     "_questionWeight":1,
-    "_developerMode":true,
+    "_developerMode":false,
+    "_overidePartlyCorrect": false,
+    "title":"PPQ Audio",
+    "displayTitle":"PPQ Audio",
+    "body":"Body",
+    "instruction":"",
+    "displayTitleReduced": "Question three",
+    "bodyReduced": "Question text?",
+    "_reducedText": {
+        "_isEnabled": true
+    },
+    "_audio": {
+        "_isEnabled": true,
+        "_showControls": true,
+        "_autoplay": true,
+        "_channel": 0,
+        "_location": "top-right",
+        "_media": {
+            "desktop": "course/en/audio/***.mp3",
+            "mobile": "course/en/audio/***.mp3"
+        }
+    },
     "_pinboardDesktop": {
         "src": "course/en/images/hotgraphic.png",
         "alt": "alt text",
@@ -67,19 +86,82 @@
         }
     ],
     "_feedback":{
-        "correct":"Congratulations, this is the correct feedback.",
-        "_partlyCorrect": {
-            "final":"This is the partly correct feedback."
-        },
+        "title": "That's correct.",
+        "correct":"This is the correct feedback.",
+        "correctReduced": "Reduced correct text.",
         "_incorrect": {
-            "final":"Unfortunately this is the incorrect feedback."
+            "title": "That's not correct.",
+            "notFinal": "",
+            "notFinalReduced": "Reduced notFinal text.",
+            "final": "This feedback will appear if you answered the question incorrectly.",
+            "finalReduced": "Reduced final text."
+        },
+        "_partlyCorrect": {
+            "title": "That's not quite correct.",
+            "notFinal": "",
+            "notFinalReduced": "Reduced notFinal text.",
+            "final": "This feedback will appear if you answered the question correctly.",
+            "finalReduced": "Reduced final text."
+        },
+        "_audio": {
+            "_correct": {
+                "_media": {
+                    "src": ""
+                }
+            },
+            "_incorrect": {
+                "_notFinal": {
+                    "_media": {
+                        "src": ""
+                    }
+                },
+                "_final": {
+                    "_media": {
+                        "src": ""
+                    }
+                }
+            },
+            "_partlyCorrect": {
+                "_notFinal": {
+                    "_media": {
+                        "src": ""
+                    }
+                },
+                "_final": {
+                    "_media": {
+                        "src": ""
+                    }
+                }
+            }
+        },
+        "_icons": {
+            "_correctIcon": "adapt/css/assets/correct-icon.png",
+            "_incorrectIcon": "adapt/css/assets/incorrect-icon.png",
+            "_partlyCorrectIcon": "adapt/css/assets/partlyCorrect-icon.png"
         }
     },
-    "_buttons":{
-        "submit":"Submit",
-        "reset":"Reset",
-        "showCorrectAnswer":"Model Answer",
-        "hideCorrectAnswer":"Your Answer",
-        "resetPins":"Reset Pins"
+    "_buttons": {
+        "_submit": {
+            "buttonText": "Submit",
+            "ariaLabel": "Select here to submit your answer."
+        },
+        "_reset": {
+            "buttonText": "Reset",
+            "ariaLabel": ""
+        },
+        "_showCorrectAnswer": {
+            "buttonText": "Correct Answer",
+            "ariaLabel": ""
+        },
+        "_hideCorrectAnswer": {
+            "buttonText": "My Answer",
+            "ariaLabel": ""
+        },
+        "_showFeedback": {
+            "buttonText": "Show feedback",
+            "ariaLabel": ""
+        },
+        "remainingAttemptsText": "attempts remaining",
+        "remainingAttemptText": "final attempt"
     }
 }

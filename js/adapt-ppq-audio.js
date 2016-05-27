@@ -2,9 +2,9 @@ define(function(require) {
 
 	var QuestionView = require('coreViews/questionView');
 	var Adapt = require('coreJS/adapt');
-    var Draggabilly = require('components/adapt-ppq/js/draggabilly');
+    var Draggabilly = require('components/adapt-ppq-audio/js/draggabilly');
 
-    var PPQ = QuestionView.extend({
+    var PPQAudio = QuestionView.extend({
 
         componentDimensions: {
             height: 0,
@@ -12,8 +12,8 @@ define(function(require) {
         },
 
         events: {
-            "click .ppq-pinboard":"placePin",
-            "click .ppq-icon": "preventDefault"
+            "click .ppq-audio-pinboard":"placePin",
+            "click .ppq-audio-icon": "preventDefault"
         },
 
         preventDefault: function(event) {
@@ -32,6 +32,9 @@ define(function(require) {
             this.setLayout();
             this.listenTo(Adapt, 'device:changed', this.handleDeviceChanged);
             this.listenTo(Adapt, 'device:resize', this.handleDeviceResize);
+
+            // Listen for text change on audio extension
+            this.listenTo(Adapt, "audio:changeText", this.replaceText);
         },
 
         postRender: function() {
@@ -39,9 +42,9 @@ define(function(require) {
 
             var thisHandle = this;
             //Wait for pinboard image to load then set ready. If already complete show completed state.
-            this.$('.ppq-pinboard-container-inner').imageready(_.bind(function() {
+            this.$('.ppq-audio-pinboard-container-inner').imageready(_.bind(function() {
 
-                var $pins = this.$el.find('.ppq-pin');
+                var $pins = this.$el.find('.ppq-audio-pin');
                 $pins.each(function(index, item) {
                     item.dragObj = new Draggabilly(item, {
                         containment: true
@@ -55,11 +58,16 @@ define(function(require) {
                 });
 
                 _.extend(this.componentDimensions, {
-                    height: this.$("#ppq-boundary").height(),
-                    width: this.$("#ppq-boundary").width()
+                    height: this.$("#ppq-audio-boundary").height(),
+                    width: this.$("#ppq-audio-boundary").width()
                 });
 
                 this.setReadyStatus();
+
+                if (this.model.get('_reducedText') && this.model.get('_reducedText')._isEnabled && Adapt.config.get('_reducedText')._isEnabled) {
+                    this.replaceText(Adapt.audio.textSize);
+                }
+
                 if (this.model.get("_isComplete") && this.model.get("_isInteractionsComplete")) {
                     this.showCompletedState();
                 }
@@ -70,32 +78,31 @@ define(function(require) {
             QuestionView.prototype.updateButtons.apply(this);
 
             if (this.model.get("_isSubmitted")) {
-                 var $pins = this.$el.find('.ppq-pin');
+                 var $pins = this.$el.find('.ppq-audio-pin');
                 $pins.each(function(index, item) {
                     item.dragObj.disable();
                 });
                 this.model.set("_countCorrect",this.$(".item-correct").length);
             }
 
-            //this.model.get('_buttonState') == 'submit' ? this.$('.ppq-reset-pins').show() : this.$('.ppq-reset-pins').hide();
+            //this.model.get('_buttonState') == 'submit' ? this.$('.ppq-audio-reset-pins').show() : this.$('.ppq-audio-reset-pins').hide();
         },
 
         showCompletedState: function() {
-
             //show the user answer then apply classes to set the view to a completed state
             this.hideCorrectAnswer();
-            this.$(".ppq-pin").addClass("in-use");
-            this.$(".ppq-widget").addClass("submitted disabled show-user-answer");
+            this.$(".ppq-audio-pin").addClass("in-use");
+            this.$(".ppq-audio-widget").addClass("submitted disabled show-user-answer");
             if (this.model.get("_isCorrect")) {
-                this.$(".ppq-widget").addClass("correct");
+                this.$(".ppq-audio-widget").addClass("correct");
             }
         },
 
         handleDeviceChanged: function() {
 
             var componentDimensions = {
-                height: this.$("#ppq-boundary").height(),
-                width: this.$("#ppq-boundary").width()
+                height: this.$("#ppq-audio-boundary").height(),
+                width: this.$("#ppq-audio-boundary").width()
             };
             if (this.componentDimensions.height == componentDimensions.height && this.componentDimensions.width == componentDimensions.width) {
                 this.componentDimensions = componentDimensions;
@@ -111,20 +118,20 @@ define(function(require) {
 
             _.each(this.model.get('_items'), function(item, index) {
                 props = isDesktop ? item.desktop : item.mobile;
-                this.$('.ppq-correct-zone').eq(index).css({left:props.left+'%', top:props.top+'%', width:props.width+'%', height:props.height+'%'});
+                this.$('.ppq-audio-correct-zone').eq(index).css({left:props.left+'%', top:props.top+'%', width:props.width+'%', height:props.height+'%'});
             }, this);
 
             props = isDesktop ? this.model.get('_pinboardDesktop') : this.model.get('_pinboardMobile');
 
-            this.$('.ppq-pinboard').attr({src:props.src, title:props.title, alt:props.alt});
+            this.$('.ppq-audio-pinboard').attr({src:props.src, title:props.title, alt:props.alt});
 
             this.handleDeviceResize();
 
             if (this.model.get("_isComplete")) {
-                var width = parseInt(this.$('.ppq-pinboard').width(),10),
-                height = parseInt(this.$('.ppq-pinboard').height(),10);
+                var width = parseInt(this.$('.ppq-audio-pinboard').width(),10),
+                height = parseInt(this.$('.ppq-audio-pinboard').height(),10);
 
-                var $pins = this.$(".ppq-pin");
+                var $pins = this.$(".ppq-audio-pin");
                 var countCorrect = this.model.get("_countCorrect");
                 var currentLayoutItems = this.getItemsForCurrentLayout(this.model.get("_items"));
 
@@ -183,8 +190,8 @@ define(function(require) {
         handleDeviceResize: function() {
 
             var componentDimensions = {
-                height: this.$("#ppq-boundary").height(),
-                width: this.$("#ppq-boundary").width()
+                height: this.$("#ppq-audio-boundary").height(),
+                width: this.$("#ppq-audio-boundary").width()
             };
             if (this.componentDimensions.height == componentDimensions.height && this.componentDimensions.width == componentDimensions.width) {
                 this.componentDimensions = componentDimensions;
@@ -196,8 +203,8 @@ define(function(require) {
             // Calls resetPins then if complete adds back classes that are required to show the completed state.
             this.resetPins();
             if (this.model.get("_isComplete")) {
-                this.$(".ppq-pin").addClass("in-use");
-                if (this.$(".ppq-widget").hasClass("show-user-answer")) {
+                this.$(".ppq-audio-pin").addClass("in-use");
+                if (this.$(".ppq-audio-widget").hasClass("show-user-answer")) {
                     this.hideCorrectAnswer();
                 } else {
                     this.showCorrectAnswer();
@@ -224,10 +231,10 @@ define(function(require) {
             event.preventDefault();
 
             //Handles click event on the pinboard image to place pins
-            var $pin = this.$('.ppq-pin:not(.in-use):first');
+            var $pin = this.$('.ppq-audio-pin:not(.in-use):first');
             if ($pin.length === 0) return;
 
-            var offset = this.$('.ppq-pinboard').offset();
+            var offset = this.$('.ppq-audio-pinboard').offset();
 
             var clickY = ( event.clientY < offset.top ? event.pageY : event.clientY );
             var clickX = ( event.clientX < offset.left ? event.pageX : event.clientX );
@@ -257,7 +264,7 @@ define(function(require) {
                 _isAtLeastOneCorrectSelection: false
             });
 
-            var $pins = this.$el.find('.ppq-pin');
+            var $pins = this.$el.find('.ppq-audio-pin');
             $pins.each(function(index, item) {
                 if (item.dragObj) item.dragObj.enable();
             });
@@ -267,18 +274,18 @@ define(function(require) {
 
             //the class "in-use" is what makes the pins visible
             if (event) event.preventDefault();
-            this.$(".ppq-pin").removeClass("in-use item-correct item-incorrect");
+            this.$(".ppq-audio-pin").removeClass("in-use item-correct item-incorrect");
         },
 
         canSubmit: function() {
             if (this.model.get("_selectable")) {
-                if(this.$(".ppq-pin.in-use").length == this.model.get("_selectors").length) {
+                if(this.$(".ppq-audio-pin.in-use").length == this.model.get("_selectors").length) {
                     return true;
                 } else {
                     return false;
                 }
             } else {
-                if(this.$(".ppq-pin.in-use").length == this.model.get("_items").length) {
+                if(this.$(".ppq-audio-pin.in-use").length == this.model.get("_items").length) {
                     return true;
                 } else {
                     return false;
@@ -286,9 +293,8 @@ define(function(require) {
             }
         },
 
-        storeUserAnswer:function()
-        {
-            var pins = this.$(".ppq-pin");
+        storeUserAnswer:function() {
+            var pins = this.$(".ppq-audio-pin");
 
             // User answers aren't stored in the items array. Instead we create a new array with userAnswer objects.
             var userAnswers = [];
@@ -304,7 +310,7 @@ define(function(require) {
 
         isCorrect: function() {
             var correctCount = 0;
-            var pins = this.$(".ppq-pin");
+            var pins = this.$(".ppq-audio-pin");
 
             // There are both desktop and mobile items but nested in the same items object.
             // So we need to store the currentLayoutItems locally to check answers against the current layout.
@@ -354,8 +360,8 @@ define(function(require) {
         },
 
         isInCorrectZone: function($pin, item, items){
-            var width = parseInt(this.$('.ppq-pinboard').width(),10),
-                height = parseInt(this.$('.ppq-pinboard').height(),10),
+            var width = parseInt(this.$('.ppq-audio-pinboard').width(),10),
+                height = parseInt(this.$('.ppq-audio-pinboard').height(),10),
                 pinLeft = parseFloat($pin.css("left")) + (parseFloat($pin.css("width")) / 2),
                 pinTop = parseFloat($pin.css("top")) + parseFloat($pin.css("height")),
                 inCorrectZone = false;
@@ -385,8 +391,8 @@ define(function(require) {
         },
 
         getPinZone: function($pin, items){
-            var width = parseInt(this.$('.ppq-pinboard').width(),10),
-                height = parseInt(this.$('.ppq-pinboard').height(),10),
+            var width = parseInt(this.$('.ppq-audio-pinboard').width(),10),
+                height = parseInt(this.$('.ppq-audio-pinboard').height(),10),
                 pinLeft = parseFloat($pin.css("left")) + (parseFloat($pin.css("width")) / 2),
                 pinTop = parseFloat($pin.css("top")) + parseFloat($pin.css("height")),
                 inCorrectZone = false;
@@ -405,27 +411,25 @@ define(function(require) {
         },
 
         getUserAnswer: function($pin) {
-
             // Returns a user answer object that gets added to a userAnswers array
             var left = parseFloat($pin.css("left")),
                 top = parseFloat($pin.css("top")),
-                width = parseInt(this.$('.ppq-pinboard').width(),10),
-                height = parseInt(this.$('.ppq-pinboard').height(),10);
+                width = parseInt(this.$('.ppq-audio-pinboard').width(),10),
+                height = parseInt(this.$('.ppq-audio-pinboard').height(),10);
             return {
                 left: (100/width) * left,
                 top: (100/height) * top
             }
         },
 
-        showMarking:function()
-        {
+        showMarking:function() {
             this.hideCorrectAnswer();
         },
 
         hideCorrectAnswer: function() {
-            var width = parseInt(this.$('.ppq-pinboard').width(),10),
-                height = parseInt(this.$('.ppq-pinboard').height(),10);
-            var pins = this.$(".ppq-pin");
+            var width = parseInt(this.$('.ppq-audio-pinboard').width(),10),
+                height = parseInt(this.$('.ppq-audio-pinboard').height(),10);
+            var pins = this.$(".ppq-audio-pin");
             var userAnswers = this.model.get("_userAnswer");
             var currentLayoutItems = this.getItemsForCurrentLayout(this.model.get("_items"));
 
@@ -447,9 +451,9 @@ define(function(require) {
         },
 
         showCorrectAnswer: function() {
-            var width = parseInt(this.$('.ppq-pinboard').width(),10),
-                height = parseInt(this.$('.ppq-pinboard').height(),10);
-            var pins = this.$(".ppq-pin"),
+            var width = parseInt(this.$('.ppq-audio-pinboard').width(),10),
+                height = parseInt(this.$('.ppq-audio-pinboard').height(),10);
+            var pins = this.$(".ppq-audio-pin"),
                 answers = this.getItemsForCurrentLayout(this.model.get("_items"));
             _.each(answers, function(item, index) {
                 var $pin = $(pins[index]);
@@ -462,7 +466,6 @@ define(function(require) {
         },
 
         onDragStart: function(event) {
-            console.log("Drag Start");
             var $pin = $(event.element);
             var pos = {
                 top: $pin.css("top"),
@@ -472,20 +475,16 @@ define(function(require) {
         },
 
         onDragEnd: function(event) {
-            console.log("Drag End");
-
             var $pin = $(event.element);
-
             var isDuplicate = this.isDuplicatePin($pin);
             if (isDuplicate) {
-                console.log("Duplicate!")
                 var pos = JSON.parse($pin.attr("data-prev"));
                 $pin.css(pos);
             }
         },
 
         isDuplicatePin: function($pin) {
-            var pins = this.$(".ppq-pin");
+            var pins = this.$(".ppq-audio-pin");
             var currentLayoutItems = this.getItemsForCurrentLayout(this.model.get("_items"));
 
             var pinZone = this.getPinZone($pin, currentLayoutItems);
@@ -504,12 +503,27 @@ define(function(require) {
             if (populatedZones[pinZone].length > 1 && pinZone > -1) return true;
             return false;
             
+        },
+
+        // Reduced text
+        replaceText: function(value) {
+            // If enabled
+            if (this.model.get('_reducedText') && this.model.get('_reducedText')._isEnabled) {
+                // Change component title and body
+                if(value == 0) {
+                    this.$('.component-title-inner').html(this.model.get('displayTitle')).a11y_text();
+                    this.$('.component-body-inner').html(this.model.get('body')).a11y_text();
+                } else {
+                    this.$('.component-title-inner').html(this.model.get('displayTitleReduced')).a11y_text();
+                    this.$('.component-body-inner').html(this.model.get('bodyReduced')).a11y_text();
+                }
+            }
         }
 
     });
 
-    Adapt.register("ppq", PPQ);
+    Adapt.register("ppq-audio", PPQAudio);
 
-    return PPQ;
+    return PPQAudio;
 
 });

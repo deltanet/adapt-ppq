@@ -1,10 +1,10 @@
-.ppq-component {
+.ppq-audio-component {
 
-	.ppq-pinboard-container-inner {
+	.ppq-audio-pinboard-container-inner {
 		position: relative;
 	}
 
-	.ppq-pinboard {
+	.ppq-audio-pinboard {
 		display: block;
 		cursor: pointer;
 		&.developer-mode {
@@ -14,7 +14,7 @@
 		}
 	}
 
-	.ppq-pin {
+	.ppq-audio-pin {
 		text-decoration: none;
 		position: absolute;
 		z-index: 0;
@@ -23,40 +23,40 @@
 			visibility: visible;
 		}
 		&.item-correct {
-			.ppq-pin-icon {
+			.ppq-audio-pin-icon {
 				display:none
 			}
-			.ppq-correct-icon {
+			.ppq-audio-correct-icon {
 				display:block;
 			}
 		}
 		&.item-incorrect {
-			.ppq-pin-icon {
+			.ppq-audio-pin-icon {
 				display:none
 			}
-			.ppq-incorrect-icon {
+			.ppq-audio-incorrect-icon {
 				display:block;
 			}
 		}
 	}
 
-	.ppq-icon {
+	.ppq-audio-icon {
 		font-size: 50px;
 		width: 50px;
 		height: 50px;
 		display:none;
-		&.ppq-pin-icon {
+		&.ppq-audio-pin-icon {
 			display:block;
 		}
-		&.ppq-correct-icon {
+		&.ppq-audio-correct-icon {
 			color: @icon-correct-color;
 		}
-		&.ppq-incorrect-icon {
+		&.ppq-audio-incorrect-icon {
 			color: @icon-incorrect-color;
 		}
 	}
 
-	.ppq-correct-zone {
+	.ppq-audio-correct-zone {
 		position: absolute;
 		background-color:#f55;
 	}
@@ -71,17 +71,17 @@
         &.submit {
             display: inline-block;
         }
-        &.ppq-reset-pins {
+        &.ppq-audio-reset-pins {
         	display: inline-block;
         }
     }
 
-	.ppq-widget {
-		.ppq-pin { 
+	.ppq-audio-widget {
+		.ppq-audio-pin { 
         		cursor: pointer;
         }
         &.submitted {
-        	.ppq-pin { 
+        	.ppq-audio-pin { 
         		cursor: default;
         	}
             .button.submit {
@@ -90,7 +90,7 @@
             .button.reset {
                 display: inline-block;
             }
-            .button.ppq-reset-pins {
+            .button.ppq-audio-reset-pins {
             	display:none;
             }
         }
@@ -111,7 +111,7 @@
             .button.reset {
                 display: none;
             }
-            .button.ppq-reset-pins {
+            .button.ppq-audio-reset-pins {
             	display:none;
             }
         }
