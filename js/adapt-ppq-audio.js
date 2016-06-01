@@ -68,7 +68,7 @@ define(function(require) {
                     this.replaceText(Adapt.audio.textSize);
                 }
 
-                if (this.model.get("_isComplete") && this.model.get("_isInteractionsComplete")) {
+                if (this.model.get("_isComplete")) {
                     this.showCompletedState();
                 }
             }, this));
