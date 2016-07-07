@@ -15,22 +15,6 @@
     "displayTitle":"PPQ Audio",
     "body":"Body",
     "instruction":"",
-    "displayTitleReduced": "Question three",
-    "bodyReduced": "Question text?",
-    "_reducedText": {
-        "_isEnabled": true
-    },
-    "_audio": {
-        "_isEnabled": true,
-        "_showControls": true,
-        "_autoplay": true,
-        "_channel": 0,
-        "_location": "top-right",
-        "_media": {
-            "desktop": "course/en/audio/***.mp3",
-            "mobile": "course/en/audio/***.mp3"
-        }
-    },
     "_pinboardDesktop": {
         "src": "course/en/images/hotgraphic-bg.jpg",
         "alt": "alt text",
@@ -47,13 +31,13 @@
                 "left": 20,
                 "top": 48,
                 "width": 10,
-                "height": 10 
+                "height": 10
             },
             "mobile": {
                 "left": 20,
                 "top": 70,
                 "width": 20,
-                "height": 20 
+                "height": 20
             }
         },
         {
@@ -61,13 +45,13 @@
                 "left": 40,
                 "top": 48,
                 "width": 10,
-                "height": 10 
+                "height": 10
             },
             "mobile": {
                 "left": 40,
                 "top": 40,
                 "width": 20,
-                "height": 20 
+                "height": 20
             }
         },
         {
@@ -75,13 +59,13 @@
                 "left": 60,
                 "top": 48,
                 "width": 10,
-                "height": 10 
+                "height": 10
             },
             "mobile": {
                 "left": 60,
                 "top": 10,
                 "width": 20,
-                "height": 20 
+                "height": 20
             }
         }
     ],
