@@ -1,0 +1,698 @@
+{
+  "type":"object",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "http://jsonschema.net",
+  "$ref": "http://localhost/plugins/content/component/model.schema",
+  "globals": {
+    "ariaRegion": {
+      "type": "string",
+      "required": true,
+      "default": "This component is a multiple choice question. Once you have selected an option select the submit button below",
+      "inputType": "Text",
+      "validators": []
+    }
+  },
+  "properties":{
+    "_supportedLayout": {
+      "type": "string",
+      "required": true,
+      "enum": ["full-width", "half-width", "both"],
+      "default": "half-width",
+      "editorOnly": true
+    },
+    "instruction": {
+      "type": "string",
+      "required": false,
+      "default": "",
+      "inputType": "Text",
+      "validators": [],
+      "help": "This is the instruction text"
+    },
+    "_attempts": {
+      "type":"number",
+      "required":true,
+      "default":1,
+      "title": "Attempts",
+      "inputType":"Number",
+      "validators": ["required", "number"],
+      "help": "How many attempts the learner is allowed"
+    },
+    "_shouldDisplayAttempts": {
+      "type":"boolean",
+      "required":false,
+      "default": false,
+      "title": "Display Attempts",
+      "inputType": {"type": "Boolean", "options": [true, false]},
+      "validators": [],
+      "help": "Select 'true' to display the numbers of attempts left"
+    },
+    "_isRandom": {
+      "type":"boolean",
+      "required":false,
+      "default": false,
+      "title": "Randomised Items",
+      "inputType": {"type": "Boolean", "options": [true, false]},
+      "validators": [],
+      "help": "If set to 'true', all items will be randomised"
+    },
+    "_recordInteraction": {
+      "type":"boolean",
+      "required":false,
+      "default": true,
+      "title": "Record interaction",
+      "inputType": {"type": "Boolean", "options": [true, false]},
+      "validators": [],
+      "help": "If set to 'true', the user's answer(s) will be recorded to cmi.interactions on the LMS (where supported)."
+    },
+    "_canShowModelAnswer": {
+      "type":"boolean",
+      "required":false,
+      "default": true,
+      "title": "Can Show Model Answer",
+      "inputType": {"type": "Boolean", "options": [true, false]},
+      "validators": [],
+      "help": "Setting this to false prevents the show correct answer button from being displayed"
+    },
+    "_questionWeight": {
+      "type":"number",
+      "required":false,
+      "default": 1,
+      "title": "Question Weight",
+      "inputType": "Number",
+      "validators": ["number"],
+      "help": "How much this question is worth"
+    },
+    "_developerMode": {
+      "type":"boolean",
+      "required":false,
+      "default": false,
+      "title": "Developer Mode",
+      "inputType": {"type": "Boolean", "options": [true, false]},
+      "validators": [],
+      "help": "Setting this to true displays the position of the hidden hotspots"
+    },
+    "_overidePartlyCorrect": {
+      "type":"boolean",
+      "required":false,
+      "default": false,
+      "title": "Overide Partly Correct",
+      "inputType": {"type": "Boolean", "options": [true, false]},
+      "validators": []
+    },
+    "_pinboardDesktop": {
+      "type":"object",
+      "required":true,
+      "title": "Pin Board Desktop Graphic",
+      "properties":{
+        "src": {
+          "type": "string",
+          "required": true,
+          "default": "",
+          "inputType": "Asset:image",
+          "validators": [],
+          "help": "Pin board background image - used on desktop"
+        },
+        "alt": {
+          "type": "string",
+          "required": false,
+          "default": "",
+          "inputType": "Text",
+          "validators": [],
+          "help": "Alternative text for pin board image"
+        },
+        "title": {
+          "type": "string",
+          "required": true,
+          "default": "",
+          "title": "Title",
+          "inputType": "Text",
+          "validators": ["required"]
+        }
+      }
+    },
+    "_pinboardMobile": {
+      "type":"object",
+      "required":true,
+      "title": "Pin Board Desktop Graphic",
+      "properties":{
+        "src": {
+          "type": "string",
+          "required": true,
+          "default": "",
+          "inputType": "Asset:image",
+          "validators": [],
+          "help": "Pin board background image - used on desktop"
+        },
+        "alt": {
+          "type": "string",
+          "required": false,
+          "default": "",
+          "inputType": "Text",
+          "validators": [],
+          "help": "Alternative text for pin board image"
+        },
+        "title": {
+          "type": "string",
+          "required": true,
+          "default": "",
+          "title": "Title",
+          "inputType": "Text",
+          "validators": ["required"]
+        }
+      }
+    },
+    "_items": {
+      "type":"array",
+      "required":true,
+      "title": "Items",
+      "items": {
+        "type":"object",
+        "required":true,
+        "properties":{
+          "desktop": {
+            "type":"object",
+            "required":true,
+            "title": "Desktop Pin Settings",
+            "properties":{
+              "left": {
+                "type":"number",
+                "required":true,
+                "default":0,
+                "title": "Pin Position - Left",
+                "inputType": "Number",
+                "validators": ["required", "number"],
+                "help": "Left position of pin"
+              },
+              "top": {
+                "type":"number",
+                "required":true,
+                "default":0,
+                "title": "Pin Position - Top",
+                "inputType": "Number",
+                "validators": ["required", "number"],
+                "help": "Top position of pin"
+              },
+              "width": {
+                "type":"number",
+                "required":true,
+                "default": 10,
+                "title": "Pin Width",
+                "inputType": "Number",
+                "validators": ["required", "number"],
+                "help": "Width of pin hit area"
+              },
+              "height": {
+                "type":"number",
+                "required":true,
+                "default": 10,
+                "title": "Pin Height",
+                "inputType": "Number",
+                "validators": ["required", "number"],
+                "help": "Height of pin hit area"
+              }
+            }
+          },
+          "mobile": {
+            "type":"object",
+            "required":true,
+            "title": "Mobile Pin Settings",
+            "properties":{
+              "left": {
+                "type":"number",
+                "required":true,
+                "default":0,
+                "title": "Pin Position - Left",
+                "inputType": "Number",
+                "validators": ["required", "number"],
+                "help": "Left position of pin"
+              },
+              "top": {
+                "type":"number",
+                "required":true,
+                "default":0,
+                "title": "Pin Position - Top",
+                "inputType": "Number",
+                "validators": ["required", "number"],
+                "help": "Top position of pin"
+              },
+              "width": {
+                "type":"number",
+                "required":true,
+                "default": 10,
+                "title": "Pin Width",
+                "inputType": "Number",
+                "validators": ["required", "number"],
+                "help": "Width of pin hit area"
+              },
+              "height": {
+                "type":"number",
+                "required":true,
+                "default": 10,
+                "title": "Pin Height",
+                "inputType": "Number",
+                "validators": ["required", "number"],
+                "help": "Height of pin hit area"
+              }
+            }
+          }
+        }
+      }
+    },
+    "_feedback": {
+      "type":"object",
+      "required":true,
+      "title": "Feedback",
+      "properties":{
+        "title": {
+          "type":"string",
+          "required":false,
+          "default": "",
+          "title": "Correct Feedback Title",
+          "inputType": "Text",
+          "validators": [],
+          "help": "Optional Title"
+        },
+        "correct": {
+          "type":"string",
+          "required":true,
+          "default": "",
+          "title": "Correct",
+          "inputType": "TextArea",
+          "validators": ["required"],
+          "help": "Correct feedback for this question"
+        },
+        "correctReduced": {
+          "type":"string",
+          "required":false,
+          "default": "",
+          "title": "Correct - Reduced Text",
+          "inputType": "TextArea",
+          "validators": ["required"],
+          "help": "Correct feedback for this question when reduced text is shown"
+        },
+        "_incorrect": {
+          "type":"object",
+          "required":true,
+          "title": "Incorrect Feedback",
+          "properties":{
+            "title": {
+              "type":"string",
+              "required":false,
+              "default": "",
+              "title": "Incorrect Feedback Title",
+              "inputType": "Text",
+              "validators": [],
+              "help": "Optional Title"
+            },
+            "final": {
+              "type":"string",
+              "required": true,
+              "default": "",
+              "title": "Incorrect Final",
+              "inputType": "TextArea",
+              "validators": ["required"],
+              "help": "Incorrect feedback for the final attempt"
+            },
+            "finalReduced": {
+              "type":"string",
+              "required": true,
+              "default": "",
+              "title": "Incorrect Final - Reduced Text",
+              "inputType": "TextArea",
+              "validators": ["required"],
+              "help": "Incorrect feedback for the final attempt when reduced text is shown"
+            },
+            "notFinal": {
+              "type":"string",
+              "required": false,
+              "default": "",
+              "title": "Incorrect Not Final",
+              "inputType": "TextArea",
+              "validators": [],
+              "help": "Incorrect feedback for any attempt apart from the last attempt"
+            },
+            "notFinalReduced": {
+              "type":"string",
+              "required": false,
+              "default": "",
+              "title": "Incorrect Not Final - Reduced Text",
+              "inputType": "TextArea",
+              "validators": [],
+              "help": "Incorrect feedback for any attempt apart from the last attempt when reduced text is shown"
+            }
+          }
+        },
+        "_partlyCorrect": {
+          "type":"object",
+          "required":false,
+          "properties":{
+            "title": {
+              "type":"string",
+              "required":false,
+              "default": "",
+              "title": "Partly Correct Feedback Title",
+              "inputType": "Text",
+              "validators": [],
+              "help": "Optional Title"
+            },
+            "final": {
+              "type":"string",
+              "required": false,
+              "default": "",
+              "title": "Partly Correct Final",
+              "inputType": "TextArea",
+              "validators": [],
+              "help": "Partly correct feedback for the final attempt"
+            },
+            "finalReduced": {
+              "type":"string",
+              "required": false,
+              "default": "",
+              "title": "Partly Correct Final - Reduced Text",
+              "inputType": "TextArea",
+              "validators": [],
+              "help": "Partly correct feedback for the final attempt when reduced text is shown"
+            },
+            "notFinal": {
+              "type":"string",
+              "required": false,
+              "default": "",
+              "title": "Partly Correct Not Final",
+              "inputType": "TextArea",
+              "validators": [],
+              "help": "Partly correct feedback for any attempt apart from the last attempt"
+            },
+            "notFinalReduced": {
+              "type":"string",
+              "required": false,
+              "default": "",
+              "title": "Partly Correct Not Final - Reduced Text",
+              "inputType": "TextArea",
+              "validators": [],
+              "help": "Partly correct feedback for any attempt apart from the last attempt when reduced text is shown"
+            }
+          }
+        },
+        "_audio": {
+          "type": "object",
+          "required": false,
+          "title": "Feedback Audio",
+          "properties": {
+            "_correct": {
+              "type": "object",
+              "required": false,
+              "properties": {
+                "_media": {
+                  "type": "object",
+                  "required": false,
+                  "properties": {
+                    "src": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "title": "Correct Audio",
+                      "inputType": "Asset:audio",
+                      "validators": [],
+                      "help": "Optional audio for correct feedback"
+                    }
+                  }
+                }
+              }
+            },
+            "_incorrect": {
+              "type": "object",
+              "required": false,
+              "properties": {
+                "_notFinal": {
+                  "type": "object",
+                  "required": false,
+                  "properties": {
+                    "_media": {
+                      "type": "object",
+                      "required": false,
+                      "properties": {
+                        "src": {
+                          "type": "string",
+                          "required": false,
+                          "default": "",
+                          "title": "Incorrect Not Final Audio",
+                          "inputType": "Asset:audio",
+                          "validators": [],
+                          "help": "Optional audio for incorrect not final"
+                        }
+                      }
+                    }
+                  }
+                },
+                "_final": {
+                  "type": "object",
+                  "required": false,
+                  "properties": {
+                    "_media": {
+                      "type": "object",
+                      "required": false,
+                      "properties": {
+                        "src": {
+                          "type": "string",
+                          "required": false,
+                          "default": "",
+                          "title": "Incorrect Final Audio",
+                          "inputType": "Asset:audio",
+                          "validators": [],
+                          "help": "Optional audio for incorrect final"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "_partlyCorrect": {
+                "type": "object",
+                "required": false,
+                "properties": {
+                  "_notFinal": {
+                    "type": "object",
+                    "required": false,
+                    "properties": {
+                      "_media": {
+                        "type": "object",
+                        "required": false,
+                        "properties": {
+                          "src": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "title": "Partly Correct Not Final Audio",
+                            "inputType": "Asset:audio",
+                            "validators": [],
+                            "help": "Optional audio for partly correct not final"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "_final": {
+                    "type": "object",
+                    "required": false,
+                    "properties": {
+                      "_media": {
+                        "type": "object",
+                        "required": false,
+                        "properties": {
+                          "src": {
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "title": "Partly Correct Final Audio",
+                            "inputType": "Asset:audio",
+                            "validators": [],
+                            "help": "Optional audio for partly correct final"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "_icons": {
+          "type": "object",
+          "required": false,
+          "properties": {
+            "_correctIcon": {
+              "type": "string",
+              "required": true,
+              "default": "",
+              "title": "Correct Feedback Icon",
+              "inputType": "Asset:image",
+              "validators": []
+            },
+            "_incorrectIcon": {
+              "type": "string",
+              "required": true,
+              "default": "",
+              "title": "Incorrect Feedback Icon",
+              "inputType": "Asset:image",
+              "validators": []
+            },
+            "_partlyCorrectIcon": {
+              "type": "string",
+              "required": true,
+              "default": "",
+              "title": "Partly Correct Feedback Icon",
+              "inputType": "Asset:image",
+              "validators": []
+            }
+          }
+        }
+      }
+    },
+    "_buttons": {
+      "type":"object",
+      "title": "Buttons",
+      "required": false,
+      "properties":{
+        "_submit": {
+          "type":"object",
+          "title": "Submit",
+          "properties":{
+            "buttonText": {
+              "type":"string",
+              "required": false,
+              "default": "",
+              "title": "",
+              "inputType": "QuestionButton",
+              "validators": [],
+              "help": "Button label text for the submit button"
+            },
+            "ariaLabel": {
+              "type":"string",
+              "required": false,
+              "default": "",
+              "title": "",
+              "inputType": "Text",
+              "validators": [],
+              "help": "Aria label for the submit button"
+            }
+          }
+        },
+        "_reset": {
+          "type":"object",
+          "title": "Reset",
+          "properties":{
+            "buttonText": {
+              "type":"string",
+              "required": false,
+              "default": "",
+              "title": "",
+              "inputType": "QuestionButton",
+              "validators": [],
+              "help": "Button label text for the reset button"
+            },
+            "ariaLabel": {
+              "type":"string",
+              "required": false,
+              "default": "",
+              "title": "",
+              "inputType": "Text",
+              "validators": [],
+              "help": "Aria label for the reset button"
+            }
+          }
+        },
+        "_showCorrectAnswer": {
+          "type":"object",
+          "title": "Show Correct Answer",
+          "properties":{
+            "buttonText": {
+              "type":"string",
+              "required": false,
+              "default": "",
+              "title": "",
+              "inputType": "QuestionButton",
+              "validators": [],
+              "help": "Button label text to show the model answer"
+            },
+            "ariaLabel": {
+              "type":"string",
+              "required": false,
+              "default": "",
+              "title": "",
+              "inputType": "Text",
+              "validators": [],
+              "help": "Aria label for the show model answer button"
+            }
+          }
+        },
+        "_hideCorrectAnswer": {
+          "type":"object",
+          "title": "Hide Correct Answer",
+          "properties":{
+            "buttonText": {
+              "type":"string",
+              "required": false,
+              "default": "",
+              "title": "",
+              "inputType": "QuestionButton",
+              "validators": [],
+              "help": "Button label text to hide the model answer"
+            },
+            "ariaLabel": {
+              "type":"string",
+              "required": false,
+              "default": "",
+              "title": "",
+              "inputType": "Text",
+              "validators": [],
+              "help": "Aria label for the hide model answer button"
+            }
+          }
+        },
+        "_showFeedback": {
+          "type":"object",
+          "title": "Show Feedback",
+          "properties":{
+            "buttonText": {
+              "type":"string",
+              "required": false,
+              "default": "",
+              "title": "",
+              "inputType": "QuestionButton",
+              "validators": [],
+              "help": "Button label text to show feedback"
+            },
+            "ariaLabel": {
+              "type":"string",
+              "required": false,
+              "default": "",
+              "title": "",
+              "inputType": "Text",
+              "validators": [],
+              "help": "Aria label for the show feedback button"
+            }
+          }
+        },
+        "remainingAttemptsText": {
+          "type":"string",
+          "required": false,
+          "default": "",
+          "title": "Attempts Remaining Text",
+          "inputType": "Text",
+          "validators": [],
+          "help": "Shown when there are multiple attempts left"
+        },
+        "remainingAttemptText": {
+          "type":"string",
+          "required": false,
+          "default": "",
+          "title": "Final Attempt Text",
+          "inputType": "Text",
+          "validators": [],
+          "help": "Shown when there is one attempt left"
+        }
+      }
+    }
+  }
+}
