@@ -31,33 +31,25 @@
       "translatable": true
     },
     "_developerMode": {
-      "type": "boolean",
+      "type":"boolean",
       "required": false,
       "default": false,
-      "title": "Developer mode",
-      "inputType": {
-        "type": "Boolean",
-        "options": [
-          true,
-          false
-        ]
-      },
+      "title": "Developer Mode",
+      "inputType": {"type": "Boolean", "options": [true, false]},
       "validators": [],
-      "help": "Select 'true' to show correct zones in preview"
+      "help": "Setting this to true displays the position of the hidden hotspots"
     },
     "_pinboardDesktop": {
-      "type": "object",
-      "required": false,
-      "title": "Pin board desktop",
-      "properties": {
+      "type":"object",
+      "required": true,
+      "title": "Pin Board Desktop Graphic",
+      "properties":{
         "src": {
           "type": "string",
           "required": true,
           "default": "",
           "inputType": "Asset:image",
-          "validators": [
-            "required"
-          ],
+          "validators": ["required"],
           "help": "This is the image that appears behind the pins"
         },
         "alt": {
@@ -73,6 +65,7 @@
           "type": "string",
           "required": false,
           "default": "",
+          "title": "Title",
           "inputType": "Text",
           "validators": [],
           "help": "Title text for this image",
@@ -81,18 +74,16 @@
       }
     },
     "_pinboardMobile": {
-      "type": "object",
-      "required": false,
-      "title": "Pin board desktop",
-      "properties": {
+      "type":"object",
+      "required": true,
+      "title": "Pin Board Desktop Graphic",
+      "properties":{
         "src": {
           "type": "string",
           "required": true,
           "default": "",
           "inputType": "Asset:image",
-          "validators": [
-            "required"
-          ],
+          "validators": [],
           "help": "This is the image that appears behind the pins"
         },
         "alt": {
@@ -108,6 +99,7 @@
           "type": "string",
           "required": false,
           "default": "",
+          "title": "Title",
           "inputType": "Text",
           "validators": [],
           "help": "Title text for this image",
@@ -116,119 +108,95 @@
       }
     },
     "_items": {
-      "type": "array",
+      "type":"array",
       "required": true,
-      "title": "Correct Zones",
+      "title": "Items",
       "items": {
-        "type": "object",
+        "type":"object",
         "required": true,
-        "properties": {
+        "properties":{
           "desktop": {
-            "type": "object",
+            "type":"object",
             "required": true,
             "title": "Desktop Correct Zone",
-            "properties": {
+            "properties":{
               "left": {
-                "type": "number",
+                "type":"number",
                 "required": true,
-                "default": 0,
+                "default":0,
                 "title": "Left",
                 "inputType": "Number",
-                "validators": [
-                  "required",
-                  "number"
-                ],
+                "validators": ["required", "number"],
                 "help": "Left position of correct zone (percentage)"
               },
               "top": {
-                "type": "number",
+                "type":"number",
                 "required": true,
-                "default": 0,
+                "default":0,
                 "title": "Top",
                 "inputType": "Number",
-                "validators": [
-                  "required",
-                  "number"
-                ],
+                "validators": ["required", "number"],
                 "help": "Top position of correct zone (percentage)"
               },
               "width": {
-                "type": "number",
+                "type":"number",
                 "required": true,
-                "default": 0,
+                "default": 10,
                 "title": "Width",
                 "inputType": "Number",
-                "validators": [
-                  "required",
-                  "number"
-                ],
+                "validators": ["required", "number"],
                 "help": "Width of correct zone (percentage)"
               },
               "height": {
-                "type": "number",
+                "type":"number",
                 "required": true,
-                "default": 0,
+                "default": 10,
                 "title": "Height",
                 "inputType": "Number",
-                "validators": [
-                  "required",
-                  "number"
-                ],
+                "validators": ["required", "number"],
                 "help": "Height of correct zone (percentage)"
               }
             }
           },
           "mobile": {
-            "type": "object",
+            "type":"object",
             "required": true,
             "title": "Mobile Correct Zone",
-            "properties": {
+            "properties":{
               "left": {
-                "type": "number",
+                "type":"number",
                 "required": true,
-                "default": 0,
+                "default":0,
                 "title": "Left",
                 "inputType": "Number",
-                "validators": [
-                  "required",
-                  "number"
-                ],
+                "validators": ["required", "number"],
                 "help": "Left position of correct zone (percentage)"
               },
               "top": {
-                "type": "number",
+                "type":"number",
                 "required": true,
-                "default": 0,
+                "default":0,
                 "title": "Top",
                 "inputType": "Number",
-                "validators": [
-                  "required",
-                  "number"
-                ],
+                "validators": ["required", "number"],
                 "help": "Top position of correct zone (percentage)"
               },
               "width": {
-                "type": "number",
+                "type":"number",
                 "required": true,
                 "default": 0,
                 "title": "Width",
                 "inputType": "Number",
-                "validators": [
-                  "required",
-                  "number"
-                ],
+                "validators": ["required", "number"],
                 "help": "Width of correct zone (percentage)"
               },
               "height": {
-                "type": "number",
+                "type":"number",
                 "required": true,
                 "default": 0,
                 "title": "Height",
                 "inputType": "Number",
-                "validators": [
-                  "required",
-                  "number"
-                ],
+                "validators": ["required", "number"],
                 "help": "Height of correct zone (percentage)"
               }
             }
@@ -236,8 +204,79 @@
         }
       }
     },
+    "_attempts": {
+      "type":"number",
+      "required":true,
+      "default":1,
+      "title": "Attempts",
+      "inputType":"Number",
+      "validators": ["required", "number"],
+      "help": "How many attempts the learner is allowed"
+    },
+    "_canShowModelAnswer": {
+      "type":"boolean",
+      "required":false,
+      "default": true,
+      "title": "Can Show Model Answer",
+      "inputType": {"type": "Boolean", "options": [true, false]},
+      "validators": [],
+      "help": "Setting this to false prevents the show correct answer button from being displayed"
+    },
+    "_canShowFeedback": {
+      "type":"boolean",
+      "required":true,
+      "default": true,
+      "title": "Display Feedback",
+      "inputType": {"type": "Boolean", "options": [true, false]},
+      "validators": [],
+      "help": "Select 'true' to allow the user to view feedback on their answer"
+    },
+    "_canShowMarking": {
+      "type": "boolean",
+      "default": true,
+      "title": "Display Marking",
+      "inputType": { "type": "Boolean", "options": [ true, false ] },
+      "validators": [],
+      "help": "Select 'true' to display ticks and crosses on question completion"
+    },
+    "_shouldDisplayAttempts": {
+      "type":"boolean",
+      "required":false,
+      "default": false,
+      "title": "Display Attempts",
+      "inputType": {"type": "Boolean", "options": [true, false]},
+      "validators": [],
+      "help": "Select 'true' to display the numbers of attempts left"
+    },
+    "_isRandom": {
+      "type":"boolean",
+      "required":false,
+      "default": false,
+      "title": "Randomised Items",
+      "inputType": {"type": "Boolean", "options": [true, false]},
+      "validators": [],
+      "help": "If set to 'true', all items will be randomised"
+    },
+    "_recordInteraction": {
+      "type":"boolean",
+      "required":false,
+      "default": true,
+      "title": "Record interaction",
+      "inputType": {"type": "Boolean", "options": [true, false]},
+      "validators": [],
+      "help": "If set to 'true', the user's answer(s) will be recorded to cmi.interactions on the LMS (where supported)."
+    },
+    "_questionWeight": {
+      "type":"number",
+      "required":false,
+      "default": 1,
+      "title": "Question Weight",
+      "inputType": "Number",
+      "validators": ["number"],
+      "help": "How much this question is worth"
+    },
     "_feedback": {
-      "type": "object",
+      "type":"object",
       "required": false,
       "title": "Feedback",
       "properties":{
@@ -307,16 +346,16 @@
       }
     },
     "_buttons": {
-      "type": "object",
+      "type":"object",
       "title": "Buttons",
       "required": false,
-      "properties": {
+      "properties":{
         "_submit": {
-          "type": "object",
+          "type":"object",
           "title": "Submit",
-          "properties": {
+          "properties":{
             "buttonText": {
-              "type": "string",
+              "type":"string",
               "required": false,
               "default": "",
               "title": "",
@@ -326,7 +365,7 @@
               "translatable": true
             },
             "ariaLabel": {
-              "type": "string",
+              "type":"string",
               "required": false,
               "default": "",
               "title": "",
@@ -338,11 +377,11 @@
           }
         },
         "_reset": {
-          "type": "object",
+          "type":"object",
           "title": "Reset",
-          "properties": {
+          "properties":{
             "buttonText": {
-              "type": "string",
+              "type":"string",
               "required": false,
               "default": "",
               "title": "",
@@ -352,7 +391,7 @@
               "translatable": true
             },
             "ariaLabel": {
-              "type": "string",
+              "type":"string",
               "required": false,
               "default": "",
               "title": "",
@@ -364,11 +403,11 @@
           }
         },
         "_showCorrectAnswer": {
-          "type": "object",
+          "type":"object",
           "title": "Show Correct Answer",
-          "properties": {
+          "properties":{
             "buttonText": {
-              "type": "string",
+              "type":"string",
               "required": false,
               "default": "",
               "title": "",
@@ -378,7 +417,7 @@
               "translatable": true
             },
             "ariaLabel": {
-              "type": "string",
+              "type":"string",
               "required": false,
               "default": "",
               "title": "",
@@ -390,11 +429,11 @@
           }
         },
         "_hideCorrectAnswer": {
-          "type": "object",
+          "type":"object",
           "title": "Hide Correct Answer",
-          "properties": {
+          "properties":{
             "buttonText": {
-              "type": "string",
+              "type":"string",
               "required": false,
               "default": "",
               "title": "",
@@ -404,7 +443,7 @@
               "translatable": true
             },
             "ariaLabel": {
-              "type": "string",
+              "type":"string",
               "required": false,
               "default": "",
               "title": "",
@@ -416,11 +455,11 @@
           }
         },
         "_showFeedback": {
-          "type": "object",
+          "type":"object",
           "title": "Show Feedback",
-          "properties": {
+          "properties":{
             "buttonText": {
-              "type": "string",
+              "type":"string",
               "required": false,
               "default": "",
               "title": "",
@@ -430,7 +469,7 @@
               "translatable": true
             },
             "ariaLabel": {
-              "type": "string",
+              "type":"string",
               "required": false,
               "default": "",
               "title": "",
@@ -440,6 +479,26 @@
               "translatable": true
             }
           }
+        },
+        "remainingAttemptsText": {
+          "type":"string",
+          "required": false,
+          "default": "",
+          "title": "Attempts Remaining Text",
+          "inputType": "QuestionButton",
+          "validators": [],
+          "help": "Shown when there are multiple attempts left",
+          "translatable": true
+        },
+        "remainingAttemptText": {
+          "type":"string",
+          "required": false,
+          "default": "",
+          "title": "Final Attempt Text",
+          "inputType": "QuestionButton",
+          "validators": [],
+          "help": "Shown when there is one attempt left",
+          "translatable": true
         },
         "resetPins": {
           "type": "object",

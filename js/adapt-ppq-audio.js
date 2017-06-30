@@ -32,9 +32,6 @@ define(function(require) {
             this.setLayout();
             this.listenTo(Adapt, 'device:changed', this.handleDeviceChanged);
             this.listenTo(Adapt, 'device:resize', this.handleDeviceResize);
-
-            // Listen for text change on audio extension
-            this.listenTo(Adapt, "audio:changeText", this.replaceText);
         },
 
         postRender: function() {
@@ -63,10 +60,6 @@ define(function(require) {
                 });
 
                 this.setReadyStatus();
-
-                if (this.model.get('_reducedText') && this.model.get('_reducedText')._isEnabled && Adapt.config.get('_reducedText')._isEnabled) {
-                    this.replaceText(Adapt.audio.textSize);
-                }
 
                 if (this.model.get("_isComplete")) {
                     this.showCompletedState();
@@ -110,7 +103,7 @@ define(function(require) {
             }
 
             this.$el.css("display:block");
-            
+
             //Currently causes layout to change from desktop to mobile even if completed.
             this.setLayout();
 
@@ -151,7 +144,7 @@ define(function(require) {
                         });
 
                     } else {
-                        
+
                         var inpos = true;
                         while(inpos == true) {
                             inpos = false;
@@ -224,7 +217,7 @@ define(function(require) {
                     desktopLayout:false
                 });
             }
-            
+
         },
 
         placePin: function(event) {
@@ -502,22 +495,7 @@ define(function(require) {
 
             if (populatedZones[pinZone].length > 1 && pinZone > -1) return true;
             return false;
-            
-        },
 
-        // Reduced text
-        replaceText: function(value) {
-            // If enabled
-            if (this.model.get('_reducedText') && this.model.get('_reducedText')._isEnabled) {
-                // Change component title and body
-                if(value == 0) {
-                    this.$('.component-title-inner').html(this.model.get('displayTitle')).a11y_text();
-                    this.$('.component-body-inner').html(this.model.get('body')).a11y_text();
-                } else {
-                    this.$('.component-title-inner').html(this.model.get('displayTitleReduced')).a11y_text();
-                    this.$('.component-body-inner').html(this.model.get('bodyReduced')).a11y_text();
-                }
-            }
         }
 
     });
