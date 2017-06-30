@@ -1,6 +1,12 @@
-adapt-ppq
-=========
+adapt-ppq-audio
+===============
 
-A question component that requires users to correctly position one or more pins on an image
+A question component that requires users to correctly position one or more pins on an image.
 
-**UPDATED VERSION**: please see https://github.com/chris-steele/adapt-ppq
+----------------------------
+**Version number:**  2.0.0  
+**Framework versions:** 2.0  
+**Author / maintainer:** CGKineo / DeltaNet  
+**Accessibility support:** WAI AA   
+**RTL support:** yes  
+**Cross-platform coverage:** TBC

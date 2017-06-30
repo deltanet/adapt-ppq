@@ -10,17 +10,17 @@
     "_attempts": 1,
     "_questionWeight": 1,
     "_developerMode": true,
-    "title": "PPQ",
-    "displayTitle": "PPQ",
+    "title": "PPQ Audio",
+    "displayTitle": "PPQ Audio",
     "body": "Body",
     "instruction": "",
     "_pinboardDesktop": {
-        "src": "course/en/images/hotgraphic.png",
+        "src": "course/en/images/hotgraphic-bg.jpg",
         "alt": "alt text",
         "title": "title text"
     },
     "_pinboardMobile": {
-        "src": "course/en/images/ppq-mobile.png",
+        "src": "course/en/images/hotgraphic-bg.jpg",
         "alt": "alt text",
         "title": "title text"
     },
@@ -100,8 +100,5 @@
         },
         "remainingAttemptsText": "attempts remaining",
         "remainingAttemptText": "final attempt"
-    },
-    "_pageLevelProgress": {
-        "_isEnabled": true
     }
 }
