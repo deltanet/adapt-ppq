@@ -1,10 +1,10 @@
 {
-    "_id":"c-04",
-    "_parentId":"b-05",
-    "_type":"component",
-    "_component":"ppq-audio",
-    "_classes":"",
-    "_layout":"full",
+    "_id": "c-04",
+    "_parentId": "b-05",
+    "_type": "component",
+    "_component": "ppq",
+    "_classes": "",
+    "_layout": "full",
     "_canShowModelAnswer": true,
     "_shouldDisplayAttempts": false,
     "_attempts":1,
@@ -69,59 +69,13 @@
             }
         }
     ],
-    "_feedback":{
-        "title": "That's correct.",
-        "correct":"This is the correct feedback.",
-        "correctReduced": "Reduced correct text.",
-        "_incorrect": {
-            "title": "That's not correct.",
-            "notFinal": "",
-            "notFinalReduced": "Reduced notFinal text.",
-            "final": "This feedback will appear if you answered the question incorrectly.",
-            "finalReduced": "Reduced final text."
-        },
+    "_feedback": {
+        "correct": "Congratulations, this is the correct feedback.",
         "_partlyCorrect": {
-            "title": "That's not quite correct.",
-            "notFinal": "",
-            "notFinalReduced": "Reduced notFinal text.",
-            "final": "This feedback will appear if you answered the question correctly.",
-            "finalReduced": "Reduced final text."
+            "final": "This is the partly correct feedback."
         },
-        "_audio": {
-            "_correct": {
-                "_media": {
-                    "src": ""
-                }
-            },
-            "_incorrect": {
-                "_notFinal": {
-                    "_media": {
-                        "src": ""
-                    }
-                },
-                "_final": {
-                    "_media": {
-                        "src": ""
-                    }
-                }
-            },
-            "_partlyCorrect": {
-                "_notFinal": {
-                    "_media": {
-                        "src": ""
-                    }
-                },
-                "_final": {
-                    "_media": {
-                        "src": ""
-                    }
-                }
-            }
-        },
-        "_icons": {
-            "_correctIcon": "adapt/css/assets/correct-icon.png",
-            "_incorrectIcon": "adapt/css/assets/incorrect-icon.png",
-            "_partlyCorrectIcon": "adapt/css/assets/partlyCorrect-icon.png"
+        "_incorrect": {
+            "final": "Unfortunately this is the incorrect feedback."
         }
     },
     "_buttons": {
