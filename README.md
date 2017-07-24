@@ -1,11 +1,3 @@
-adapt-ppq-audio
-===============
-
-A question component that requires users to correctly position one or more pins on an image.
-
-
-
-
 # adapt-ppq-audio  
 
 **PPQ** is a *question component* for the [Adapt framework](https://github.com/adaptlearning/adapt_framework).  
