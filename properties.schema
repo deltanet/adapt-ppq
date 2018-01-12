@@ -513,32 +513,6 @@
           "validators": [],
           "help": "Shown when there is one attempt left",
           "translatable": true
-        },
-        "resetPins": {
-          "type": "object",
-          "title": "Reset Pins",
-          "properties": {
-            "buttonText": {
-              "type": "string",
-              "required": false,
-              "default": "",
-              "title": "",
-              "inputType": "QuestionButton",
-              "validators": [],
-              "help": "Button label text to reset pins",
-              "translatable": true
-            },
-            "ariaLabel": {
-              "type": "string",
-              "required": false,
-              "default": "",
-              "title": "",
-              "inputType": "QuestionButton",
-              "validators": [],
-              "help": "Aria label for the reset pins button",
-              "translatable": true
-            }
-          }
         }
       }
     }
