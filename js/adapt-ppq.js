@@ -154,8 +154,6 @@ define(function(require) {
             if (this.model.get('_resetPinsOnPinboardChange')) {
                 if (this.model.get('_isSubmitted')) {
                     this.checkCompatibility();
-                    this.$('.ppq-other-device').toggleClass('display-none', !this.model.get('_showOtherDeviceCompletionMessage'));
-                    this.$('.ppq-pinboard-container, .buttons').toggleClass('display-none', this.model.get('_showOtherDeviceCompletionMessage'));
                 } else {
                     this.resetPins();
                 }
@@ -172,12 +170,6 @@ define(function(require) {
             var isDesktop = Adapt.device.screenSize != 'small',
                 isUserAnswerDesktop = this.model.get('_userAnswer')[0] === 1,
                 resetPinsOnPinboardChange = this.model.get('_resetPinsOnPinboardChange');
-
-            if (isSubmitted && isDesktop != isUserAnswerDesktop && resetPinsOnPinboardChange) {
-                this.model.set('_showOtherDeviceCompletionMessage', true);
-            } else {
-                this.model.set('_showOtherDeviceCompletionMessage', false);
-            }
         },
 
         getNextUnusedPin:function() {
