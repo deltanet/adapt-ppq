@@ -12,7 +12,7 @@ If **PPQ** has been uninstalled from the Adapt authoring tool, it may be reinsta
 
 ## Settings Overview
 
-The attributes listed below are used in *components.json* to configure **PPQ**, and are properly formatted as JSON in [*example.json*](https://github.com/deltanet/adapt-ppq/blob/master/example.json).
+The attributes listed below are used in *components.json* to configure **PPQ**, and are properly formatted as JSON in [*example.json*](https://github.com/deltanet/adapt-ppq-audio/blob/master/example.json).
 
 ### Attributes
 
@@ -20,7 +20,7 @@ In addition to the attributes specifically listed below, [*question components*]
 + [**core model attributes**](https://github.com/adaptlearning/adapt_framework/wiki/Core-model-attributes): These are inherited by every Adapt component. They have no default values. Like the attributes below, their values are assigned in *components.json*.
 + [**core buttons**](https://github.com/adaptlearning/adapt_framework/wiki/Core-Buttons): Default values are found in *course.json*, but may be overridden by **PPQ's** model in *components.json*.
 
-**_component** (string): This value must be: `ppq`.  
+**_component** (string): This value must be: `ppq-audio`.  
 
 **_classes** (string): CSS class name to be applied to **PPQ**’s containing `div`. The class must be predefined in one of the Less files. Separate multiple classes with a space.  
 
@@ -45,8 +45,6 @@ In addition to the attributes specifically listed below, [*question components*]
 **_recordInteraction** (boolean) Determines whether or not the learner's answers will be recorded to the LMS via cmi.interactions. Default is `true`. For further information, see the entry for `_shouldRecordInteractions` in the README for [adapt-contrib-spoor](https://github.com/adaptlearning/adapt-contrib-spoor).
 
 **_developerMode** (boolean): This can be used to show the correct hotspot locations. Useful for when developing the content.    
-
-**_resetPinsOnPinboardChange** (boolean): Set to `true` if the image content/aspect ratio varies between the desktop and mobile pinboards. If the user completes the question on one pinboard (e.g. desktop) and later attempts to view the question on the other pinboard (e.g. mobile) a message will be displayed in place of the pinboard. This message can be configured in `course.json` via the `_globals._components._ppq.otherDeviceCompletionMessage` property.    
 
 **_pinboardDesktop** (object): This attribute group stores the properties for the background graphic on large devices. It contains values for **src**, **alt**, and **title**.  
 
@@ -103,7 +101,7 @@ In addition to the attributes specifically listed below, [*question components*]
 >>**notFinal** (string): Text that will be displayed when the submitted answer is partly correct while more attempts are permitted. This is optional&mdash;if you do not supply it, the **_incorrect.notFinal** feedback will be shown instead.
 
 ### Accessibility
-**PPQ** has been assigned a label using the [aria-label](https://github.com/adaptlearning/adapt_framework/wiki/Aria-Labels) attribute: **ariaRegion**. This label is not a visible element. It is utilized by assistive technology such as screen readers. Should the region's text need to be customised, it can be found within the **globals** object in [*properties.schema*](https://github.com/deltanet/adapt-ppq/blob/master/properties.schema).   
+**PPQ** has been assigned a label using the [aria-label](https://github.com/adaptlearning/adapt_framework/wiki/Aria-Labels) attribute: **ariaRegion**. This label is not a visible element. It is utilized by assistive technology such as screen readers. Should the region's text need to be customised, it can be found within the **globals** object in [*properties.schema*](https://github.com/deltanet/adapt-ppq-audio/blob/master/properties.schema).   
 <div float align=right><a href="#top">Back to Top</a></div>
 
 ## Limitations  
@@ -111,7 +109,7 @@ In addition to the attributes specifically listed below, [*question components*]
 No known limitations.
 
 ----------------------------
-**Version number:**  2.0.3  
+**Version number:**  2.0.4  
 **Framework versions:** 2.0  
 **Author / maintainer:** CGKineo / DeltaNet  
 **Accessibility support:** WAI AA   

@@ -39,15 +39,6 @@
       "validators": [],
       "help": "Enabling this displays the position of the hidden hotspots"
     },
-    "_resetPinsOnPinboardChange": {
-      "type":"boolean",
-      "required": false,
-      "default": false,
-      "title": "Reset Pins when Device Changes",
-      "inputType": "Checkbox",
-      "validators": [],
-      "help": "Enabling this resets the pins when the user's device changes"
-    },
     "_pinboardDesktop": {
       "type":"object",
       "required": true,
@@ -85,7 +76,7 @@
     "_pinboardMobile": {
       "type":"object",
       "required": true,
-      "title": "Pin Board Mobile Graphic",
+      "title": "Pin Board Desktop Graphic",
       "properties":{
         "src": {
           "type": "string",

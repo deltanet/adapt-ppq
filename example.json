@@ -2,15 +2,14 @@
     "_id": "c-04",
     "_parentId": "b-05",
     "_type": "component",
-    "_component": "ppq-audio",
+    "_component": "ppq",
     "_classes": "",
     "_layout": "full",
-    "_attempts":1,
+    "_canShowModelAnswer": true,
     "_shouldDisplayAttempts": false,
     "_attempts":1,
     "_questionWeight":1,
-    "_developerMode": false,
-    "_resetPinsOnPinboardChange": false,
+    "_developerMode":false,
     "title":"PPQ Audio",
     "displayTitle":"PPQ Audio",
     "body":"Body",
@@ -77,5 +76,29 @@
         "_incorrect": {
             "final": "Unfortunately this is the incorrect feedback."
         }
+    },
+    "_buttons": {
+        "_submit": {
+            "buttonText": "Submit",
+            "ariaLabel": "Select here to submit your answer."
+        },
+        "_reset": {
+            "buttonText": "Reset",
+            "ariaLabel": ""
+        },
+        "_showCorrectAnswer": {
+            "buttonText": "Correct Answer",
+            "ariaLabel": ""
+        },
+        "_hideCorrectAnswer": {
+            "buttonText": "My Answer",
+            "ariaLabel": ""
+        },
+        "_showFeedback": {
+            "buttonText": "Show feedback",
+            "ariaLabel": ""
+        },
+        "remainingAttemptsText": "attempts remaining",
+        "remainingAttemptText": "final attempt"
     }
 }
