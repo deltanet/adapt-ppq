@@ -431,7 +431,7 @@ define(function(require) {
         }
     });
 
-    Adapt.register("ppq", Ppq);
+    Adapt.register("ppq-audio", Ppq);
 
     return Ppq;
 

@@ -1,4 +1,4 @@
-# adapt-ppq  
+# adapt-ppq-audio  
 
 **PPQ** is a *question component* for the [Adapt framework](https://github.com/adaptlearning/adapt_framework).  
 
