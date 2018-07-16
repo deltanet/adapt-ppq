@@ -74,7 +74,7 @@ define([
 
             _.each(this.model.get('_items'), function(item, index) {
                 props = isDesktop ? item.desktop : item.mobile;
-                this.$('.ppq-correct-zone').eq(index).css({left:props.left+'%', top:props.top+'%', width:props.width+'%', height:props.height+'%'});
+                this.$('.ppq-audio-correct-zone').eq(index).css({left:props.left+'%', top:props.top+'%', width:props.width+'%', height:props.height+'%'});
             }, this);
         },
 
@@ -128,7 +128,7 @@ define([
             $pinboardContainerInner.imageready(_.bind(function() {
                 for (var i=0, l=this._pinViews.length; i<l; i++) {
                     var pin = this._pinViews[i];
-                    
+
                     pin.dragObj = new Draggabilly(pin.el, {
                         containment: $pinboardContainerInner
                     });
@@ -154,8 +154,6 @@ define([
             if (this.model.get('_resetPinsOnPinboardChange')) {
                 if (this.model.get('_isSubmitted')) {
                     this.checkCompatibility();
-                    this.$('.ppq-other-device').toggleClass('display-none', !this.model.get('_showOtherDeviceCompletionMessage'));
-                    this.$('.ppq-pinboard-container, .buttons').toggleClass('display-none', this.model.get('_showOtherDeviceCompletionMessage'));
                 } else {
                     this.resetPins();
                 }
@@ -172,12 +170,6 @@ define([
             var isDesktop = Adapt.device.screenSize != 'small',
                 isUserAnswerDesktop = this.model.get('_userAnswer')[0] === 1,
                 resetPinsOnPinboardChange = this.model.get('_resetPinsOnPinboardChange');
-
-            if (isSubmitted && isDesktop != isUserAnswerDesktop && resetPinsOnPinboardChange) {
-                this.model.set('_showOtherDeviceCompletionMessage', true);
-            } else {
-                this.model.set('_showOtherDeviceCompletionMessage', false);
-            }
         },
 
         getNextUnusedPin:function() {
@@ -433,7 +425,7 @@ define([
         }
     });
 
-    Adapt.register("ppq", Ppq);
+    Adapt.register("ppq-audio", Ppq);
 
     return Ppq;
 
