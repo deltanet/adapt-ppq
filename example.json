@@ -13,6 +13,7 @@
     "_canShowMarking": true,
     "_developerMode": false,
     "_resetPinsOnPinboardChange": false,
+    "_showPinsOnLoad": false,
     "title":"PPQ Audio",
     "displayTitle":"PPQ Audio",
     "body":"Body",

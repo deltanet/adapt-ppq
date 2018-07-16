@@ -19,7 +19,11 @@ define([
             this.setupCorrectZones();
             this.addPinViews();
 
-            if (this.model.get('_isSubmitted')) this.showMarking();
+            if (this.model.get('_isSubmitted')) {
+              this.showMarking();
+            } else {
+              this.placePins();
+            }
 
             this.checkCompatibility();
 
@@ -203,6 +207,34 @@ define([
             pin.setPosition(percentX, percentY);
         },
 
+        placePins: function() {
+
+          if (!this.model.get('_showPinsOnLoad')) return;
+
+          var $pins = this.$el.find('.ppq-pin');
+          var $pinboard = this.$('.ppq-pinboard');
+          var boardw = $pinboard.width();
+          var boardh = $pinboard.height();
+
+          var itemBoardw = boardw / $pins.length;
+
+          _.each(this._pinViews, function(pin, pinIndex) {
+
+              var x = (itemBoardw * pinIndex) + (itemBoardw / 2);
+              var y = 70;
+
+              var percentX = 100 * x / boardw;
+              var percentY = 100 * y / boardh;
+
+              pin.$el.css({
+                  left:x - pin.$el.width() / 2,
+                  top:y - pin.$el.height()
+              });
+              pin.setPosition(percentX, percentY);
+          }, this);
+
+        },
+
 
         canSubmit: function() {
             return this.$(".ppq-pin.in-use").length >= this.model.get("_minSelection");
@@ -285,6 +317,7 @@ define([
             _.each(this._pinViews, function(pin) {
                 pin.reset();
             });
+            this.placePins();
         },
 
         showCorrectAnswer: function() {

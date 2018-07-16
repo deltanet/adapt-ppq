@@ -48,6 +48,8 @@ In addition to the attributes specifically listed below, [*question components*]
 
 **_resetPinsOnPinboardChange** (boolean): Set to `true` if the image content/aspect ratio varies between the desktop and mobile pinboards. If the user completes the question on one pinboard (e.g. desktop) and later attempts to view the question on the other pinboard (e.g. mobile) a message will be displayed in place of the pinboard. This message can be configured in `course.json` via the `_globals._components._ppq.otherDeviceCompletionMessage` property.    
 
+**_showPinsOnLoad** (boolean): This can be used to show the pins to the user when the component loads.    
+
 **_pinboardDesktop** (object): This attribute group stores the properties for the background graphic on large devices. It contains values for **src**, **alt**, and **title**.  
 
 >**src** (string): File name (including path) of the image.  

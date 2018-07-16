@@ -48,6 +48,15 @@
       "validators": [],
       "help": "Enabling this resets the pins when the user's device changes"
     },
+    "_showPinsOnLoad": {
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "title": "Show Pins On Load",
+      "inputType": "Checkbox",
+      "validators": [],
+      "help": "Enabling this displays the pins so the user can drag them into position"
+    },
     "_pinboardDesktop": {
       "type":"object",
       "required": true,
