@@ -19,11 +19,7 @@ define([
             this.setupCorrectZones();
             this.addPinViews();
 
-            if (this.model.get('_isSubmitted')) {
-              this.showMarking();
-            } else {
-              this.placePins();
-            }
+            if (this.model.get('_isSubmitted')) this.showMarking();
 
             this.checkCompatibility();
 
@@ -144,6 +140,8 @@ define([
                 }
 
                 this.setReadyStatus();
+
+                if (!this.model.get('_isSubmitted')) this.placePins();
             }, this));
 
             this.listenTo(Adapt, 'device:changed', this.onDeviceChanged);
