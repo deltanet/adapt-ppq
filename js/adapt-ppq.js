@@ -74,7 +74,7 @@ define([
 
             _.each(this.model.get('_items'), function(item, index) {
                 props = isDesktop ? item.desktop : item.mobile;
-                this.$('.ppq-audio-correct-zone').eq(index).css({left:props.left+'%', top:props.top+'%', width:props.width+'%', height:props.height+'%'});
+                this.$('.ppq-correct-zone').eq(index).css({left:props.left+'%', top:props.top+'%', width:props.width+'%', height:props.height+'%'});
             }, this);
         },
 
