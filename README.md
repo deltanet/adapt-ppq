@@ -114,7 +114,7 @@ No known limitations.
 
 ----------------------------
 **Version number:**  2.1.2  
-**Framework versions:** 2.0  
+**Framework versions:** 4.0  
 **Author / maintainer:** CGKineo / DeltaNet  
 **Accessibility support:** WAI AA   
 **RTL support:** yes  
