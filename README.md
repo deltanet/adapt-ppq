@@ -113,7 +113,7 @@ In addition to the attributes specifically listed below, [*question components*]
 No known limitations.
 
 ----------------------------
-**Version number:**  3.0.0  
+**Version number:**  3.0.1  
 **Framework versions:** 4.0  
 **Author / maintainer:** CGKineo / DeltaNet  
 **Accessibility support:** WAI AA   
