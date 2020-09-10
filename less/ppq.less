@@ -1,4 +1,4 @@
-.ppq-audio-component {
+.ppq-audio {
 
   .ppq-pinboard-container-inner {
     position: relative;
@@ -34,8 +34,8 @@
 
     .no-touch &:hover {
     	.ppq-icon {
-    		color: @item-text-color-hover;
-    		background-color: @item-color-hover;
+    		color: @link-hover;
+    		background-color: @nav-icon-hover;
     	}
     }
   }
@@ -46,7 +46,7 @@
   	font-size: (@icon-size*1.5);
   	width: auto;
   	height: auto;
-    color: @item-text-color;
+    color: @item-color-inverted;
     background-color: @item-color;
     border-radius: 50%;
 
@@ -55,13 +55,13 @@
     }
 
     &.ppq-correct-icon {
-      color: @icon-correct-color;
-      background-color: @item-text-color;
+      color: @item-color-inverted;
+      background-color: @item-color;
     }
 
     &.ppq-incorrect-icon {
-      color: @icon-incorrect-color;
-      background-color: @item-text-color;
+      color: @item-color-inverted;
+      background-color: @item-color;
     }
   }
 
@@ -120,15 +120,15 @@
           cursor: default;
 
           .ppq-icon {
-          	background-color: @item-text-color;
+          	background-color: @item-color-hover;
           }
 
           .ppq-correct-icon {
-            color: @icon-correct-color;
+            color: @item-color-inverted;
           }
 
           .ppq-incorrect-icon {
-            color: @icon-incorrect-color;
+            color: @item-color-inverted;
           }
         }
       }

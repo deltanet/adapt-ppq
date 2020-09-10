@@ -8,7 +8,7 @@ define([
     var Ppq = QuestionView.extend({
 
         events: {
-            "click .ppq-pinboard":"onPinboardClicked"
+            "click .js-ppq-pinboard":"onPinboardClicked"
         },
 
         render:function() {
@@ -186,7 +186,7 @@ define([
 
             var pin = this.getNextUnusedPin();
 
-            if (!pin || this.$('.component-widget').is('.disabled')) return;
+            if (!pin || this.$('.component__widget').is('.disabled')) return;
 
             var offset = this.$('.ppq-pinboard').offset();
             var $pinboard = this.$('.ppq-pinboard');

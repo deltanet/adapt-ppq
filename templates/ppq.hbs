@@ -1,6 +1,6 @@
-<div class="ppq-inner component-inner" role="region" aria-label="{{_globals._components._ppq._ariaRegion}}">
+<div class="ppq-inner component__inner" role="region" aria-label="{{_globals._components._ppq._ariaRegion}}">
     {{> component this}}
-    <div class="ppq-widget component-widget{{#if _showPinsOnLoad}} show-pins{{/if}}{{#unless _isEnabled}} disabled {{#if _isComplete}} complete submitted show-user-answer {{#if _isCorrect}}correct{{/if}} {{/if}} {{/unless}}">
+    <div class="ppq-widget component__widget{{#if _showPinsOnLoad}} show-pins{{/if}}{{#unless _isEnabled}} disabled {{#if _isComplete}} complete submitted show-user-answer {{#if _isCorrect}}correct{{/if}} {{/if}} {{/unless}}">
         <div class="ppq-other-device {{#unless _showOtherDeviceCompletionMessage}}display-none{{/unless}}">{{{compile _globals._components._ppq.otherDeviceCompletionMessage}}}</div>
         <div class="ppq-pinboard-container {{#if _showOtherDeviceCompletionMessage}}display-none{{/if}}">
             <div class="ppq-pinboard-container-inner">
@@ -10,7 +10,7 @@
                   {{/each}}
 
                 <div class="ppq-boundary">
-                    <img class="ppq-pinboard {{#if _developerMode}}developer-mode{{/if}}" src="{{_pinboardDesktop.src}}" title="{{_pinboardDesktop.title}}" alt="{{_pinboardDesktop.title}}" draggable="false" style="-moz-user-select: none;" ondragstart="return false;"/>
+                    <img class="ppq-pinboard js-ppq-pinboard {{#if _developerMode}}developer-mode{{/if}}" src="{{_pinboardDesktop.src}}" title="{{_pinboardDesktop.title}}" alt="{{_pinboardDesktop.title}}" draggable="false" style="-moz-user-select: none;" ondragstart="return false;"/>
                 </div>
 
             </div>
@@ -18,7 +18,6 @@
         </div>
     </div>
     <div>
-        <div class="buttons">
-        </div>
+        <div class="btn__container"></div>
     </div>
 </div>
