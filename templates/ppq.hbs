@@ -1,12 +1,12 @@
 <div class="ppq-inner component__inner" role="region" aria-label="{{_globals._components._ppq._ariaRegion}}">
     {{> component this}}
     <div class="ppq-widget component__widget{{#if _showPinsOnLoad}} show-pins{{/if}}{{#unless _isEnabled}} disabled {{#if _isComplete}} complete submitted show-user-answer {{#if _isCorrect}}correct{{/if}} {{/if}} {{/unless}}">
-        <div class="ppq-other-device {{#unless _showOtherDeviceCompletionMessage}}display-none{{/unless}}">{{{compile _globals._components._ppq.otherDeviceCompletionMessage}}}</div>
-        <div class="ppq-pinboard-container {{#if _showOtherDeviceCompletionMessage}}display-none{{/if}}">
+        <div class="ppq-other-device {{#unless _showOtherDeviceCompletionMessage}}u-display-none{{/unless}}">{{{compile _globals._components._ppq.otherDeviceCompletionMessage}}}</div>
+        <div class="ppq-pinboard-container {{#if _showOtherDeviceCompletionMessage}}u-display-none{{/if}}">
             <div class="ppq-pinboard-container-inner">
 
                 {{#each _items}}
-                    <div class="ppq-correct-zone {{#unless ../_developerMode}}display-none{{/unless}}"></div>
+                    <div class="ppq-correct-zone {{#unless ../_developerMode}}u-display-none{{/unless}}"></div>
                   {{/each}}
 
                 <div class="ppq-boundary">
