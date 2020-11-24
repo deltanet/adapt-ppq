@@ -34,8 +34,8 @@
 
     .no-touch &:hover {
     	.ppq-icon {
-    		color: @link-hover;
-    		background-color: @nav-icon-hover;
+    		color: @item-color-inverted-hover;
+    		background-color: @item-color-hover;
     	}
     }
   }
@@ -55,13 +55,13 @@
     }
 
     &.ppq-correct-icon {
-      color: @item-color-inverted;
-      background-color: @item-color;
+      color: @validation-success-inverted;
+      background-color: @validation-success;
     }
 
     &.ppq-incorrect-icon {
-      color: @item-color-inverted;
-      background-color: @item-color;
+      color: @validation-error-inverted;
+      background-color: @validation-error;
     }
   }
 
@@ -119,16 +119,14 @@
         .no-touch &:hover {
           cursor: default;
 
-          .ppq-icon {
-          	background-color: @item-color-hover;
-          }
-
           .ppq-correct-icon {
-            color: @item-color-inverted;
+            color: @validation-success-inverted;
+            background-color: @validation-success;
           }
 
           .ppq-incorrect-icon {
-            color: @item-color-inverted;
+            color: @validation-error-inverted;
+            background-color: @validation-error;
           }
         }
       }
