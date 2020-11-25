@@ -182,7 +182,6 @@ define([
       var pinsPlaced = this.model.get('_pinsPlaced') + 1;
       this.model.set('_pinsPlaced', pinsPlaced);
 
-
       var offset = this.$('.ppq-pinboard').offset();
       var $pinboard = this.$('.ppq-pinboard');
       var boardw = $pinboard.width();
@@ -197,7 +196,10 @@ define([
         left: x - pin.$el.width() / 2,
         top: y - pin.$el.height()
       });
+
       pin.setPosition(percentX, percentY);
+
+      this.checkCompletionStatus();
     },
 
     placePins: function() {
@@ -358,12 +360,10 @@ define([
     },
 
     onDragStart: function(pin, event) {
-      console.log('Drag Start');
+      //console.log('Drag Start');
     },
 
     onDragEnd: function(pin, event) {
-      console.log('Drag End');
-
       var $pinboard = this.$('.ppq-pinboard');
       var boardw = $pinboard.width();
       var boardh = $pinboard.height();
