@@ -23,7 +23,6 @@ define([
 
       this.checkCompatibility();
       return this;
-
     },
 
     addPinViews: function() {
@@ -203,7 +202,6 @@ define([
     },
 
     placePins: function() {
-
       if (!this.model.get('_showPinsOnLoad')) return;
 
       var $pins = this.$el.find('.ppq-pin');
@@ -227,7 +225,6 @@ define([
         });
         pin.setPosition(percentX, percentY);
       }, this);
-
     },
 
     storeUserAnswer: function() {
@@ -277,6 +274,7 @@ define([
         pin.reset();
       });
       this.placePins();
+      this.model.set('_pinsPlaced', 0);
     },
 
     isCorrect: function() {
@@ -372,6 +370,9 @@ define([
       var y = pos.top + pin.$el.height();
       var percentX = 100 * x / boardw;
       var percentY = 100 * y / boardh;
+
+      var pinsPlaced = this.model.get('_pinsPlaced') + 1;
+      this.model.set('_pinsPlaced', pinsPlaced);
 
       pin.setPosition(percentX, percentY);
       this.checkCompletionStatus();
