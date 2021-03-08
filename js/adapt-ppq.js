@@ -1,7 +1,8 @@
 define([
   'core/js/adapt',
   './ppqView',
-  './ppqModel'
+  './ppqModel',
+  'libraries/jquery-ui.min'
 ], function(Adapt, PpqView, PpqModel) {
 
   return Adapt.register("ppq-audio", {

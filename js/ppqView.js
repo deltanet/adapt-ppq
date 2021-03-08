@@ -1,8 +1,8 @@
 define([
     'core/js/adapt',
     'core/js/views/questionView',
-    './draggabilly',
-    './round'
+    'libraries/draggabilly',
+    'libraries/round'
 ], function(Adapt, QuestionView, Draggabilly, round) {
 
   var Ppq = QuestionView.extend({
