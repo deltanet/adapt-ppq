@@ -178,9 +178,6 @@ define([
 
       if (!pin || this.$('.component__widget').is('.disabled')) return;
 
-      var pinsPlaced = this.model.get('_pinsPlaced') + 1;
-      this.model.set('_pinsPlaced', pinsPlaced);
-
       var offset = this.$('.ppq-pinboard').offset();
       var $pinboard = this.$('.ppq-pinboard');
       var boardw = $pinboard.width();
@@ -371,15 +368,17 @@ define([
       var percentX = 100 * x / boardw;
       var percentY = 100 * y / boardh;
 
-      var pinsPlaced = this.model.get('_pinsPlaced') + 1;
-      this.model.set('_pinsPlaced', pinsPlaced);
-
       pin.setPosition(percentX, percentY);
       this.checkCompletionStatus();
       // this.$('.ppq-debug').html(percentX+'%,'+percentY+'% '+x+'px,'+y+'px');
     },
 
     checkCompletionStatus: function() {
+      if (this.$('.ppq-pin.in-use').length == this.model.get('_maxSelection')) {
+        this.model.set('_pinsPlaced', this.model.get('_maxSelection'));
+        this.model.checkCanSubmit();
+      }
+
       if (this.$('.ppq-pin.in-use').length >= this.model.get('_minSelection')) {
         this.model.checkCanSubmit();
       }
