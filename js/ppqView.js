@@ -106,7 +106,7 @@ define([
         if (pos) {
           pin.$el.css({
             left:boardw * pos.percentX / 100 - pin.$el.width() / 2,
-            top:boardh * pos.percentY / 100 - pin.$el.height()
+            top:boardh * pos.percentY / 100 - pin.$el.height() / 2
           });
         }
       }
@@ -184,13 +184,35 @@ define([
       var boardh = $pinboard.height();
       var x = event.pageX-offset.left;
       var y = event.pageY-offset.top;
+      var pinWidth = pin.$el.width() / 2;
+      var pinHeight = pin.$el.height() / 2;
+
+      // Constrain pin on the left
+      if (x < pinWidth) {
+        x = pinWidth;
+      }
+
+      // Constrain pin on the right
+      if (x > (boardw - pinWidth)) {
+        x = boardw - pinWidth;
+      }
+
+      // Constrain pin on the top
+      if (y < pinHeight) {
+        y = pinHeight;
+      }
+
+      // Constrain pin on the bottom
+      if (y > (boardh - pinHeight)) {
+        y = boardh - pinHeight;
+      }
+
       var percentX = 100 * x / boardw;
       var percentY = 100 * y / boardh;
 
-      // this.$('.ppq-debug').html((percentX)+','+(percentY));
       pin.$el.css({
-        left: x - pin.$el.width() / 2,
-        top: y - pin.$el.height()
+        left: x - pinWidth,
+        top: y - pinHeight
       });
 
       pin.setPosition(percentX, percentY);
@@ -218,7 +240,7 @@ define([
 
         pin.$el.css({
             left: x - pin.$el.width() / 2,
-            top: y - pin.$el.height()
+            top: y - pin.$el.height() / 2
         });
         pin.setPosition(percentX, percentY);
       }, this);
@@ -364,13 +386,12 @@ define([
       var boardh = $pinboard.height();
       var pos = pin.$el.position();
       var x = pos.left + pin.$el.width() / 2;
-      var y = pos.top + pin.$el.height();
+      var y = pos.top + pin.$el.height() / 2;
       var percentX = 100 * x / boardw;
       var percentY = 100 * y / boardh;
 
       pin.setPosition(percentX, percentY);
       this.checkCompletionStatus();
-      // this.$('.ppq-debug').html(percentX+'%,'+percentY+'% '+x+'px,'+y+'px');
     },
 
     checkCompletionStatus: function() {
